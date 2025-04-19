@@ -1,37 +1,39 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faDownload } from '@fortawesome/free-solid-svg-icons';
 
-const ContactModal = ({isOpen, onclose})=>{
-    const[formData,setFormData] = useState({
-        name:'',
-        email:'',
-        message:''
+const ContactModal = ({ isOpen, onClose }) => {
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        message: ''
     });
 
-    const handleChange = (e)=>{
-        const {name,value} = e.target;
-        setFormData(prevState=>({
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData(prevState => ({
             ...prevState,
-            [name]:value
+            [name]: value
         }));
     };
 
-    const handleSubmit = (e)=>{
+    const handleSubmit = (e) => {
         e.preventDefault();
-
+        console.log('Form submitted:', formData);
         alert('Thank you for your message!');
-        onclose();
+        onClose();
     };
 
-    if(!isOpen)return null;
+    if (!isOpen) return null;
 
-    return(
+    return (
         <div className="contact-modal-overlay">
             <div className="contact-modal">
-                <button className="close-modal" onClick={onclose}>
+                <button className="close-modal" onClick={onClose}>
                     &times;
                 </button>
                 <h2 className="section-title">Contact Me</h2>
-                <form OnSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit}>
                     <div className="form-group">
                         <label htmlFor="name">Name</label>
                         <input 
@@ -46,7 +48,7 @@ const ContactModal = ({isOpen, onclose})=>{
                     <div className="form-group">
                         <label htmlFor="email">Email</label>
                         <input 
-                            type="text" 
+                            type="email"
                             id="email"
                             name="email"
                             value={formData.email}
@@ -55,9 +57,10 @@ const ContactModal = ({isOpen, onclose})=>{
                         />
                     </div>
                     <div className="form-group">
+                        <label htmlFor="message">Message</label>
                         <textarea 
-                            name="message" 
                             id="message"
+                            name="message"
                             value={formData.message}
                             onChange={handleChange}
                             required
@@ -70,35 +73,35 @@ const ContactModal = ({isOpen, onclose})=>{
     );
 };
 
-    const Contact = ()=>{
-        const[isModalOpen,setIsModalOpen] = useState(false);
+const Contact = () => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
-        const openModal = ()=>{
-            setIsModalOpen(true);
-        };
-
-        const closeModal = ()=>{
-            setIsModalOpen(false);
-        };
-
-        return(
-            <>
-                <section id="contact" className="contact section">
-                    <div className="container">
-                        <button
-                            className="contact-btn"
-                            onClick={openModal}
-                        >
-                           CONTACT ME 
-                        </button>
-                    </div>
-                    <a href="/dummy_resume.pdf" className="resume-btn" download>
-                        DOWNLOAD RESUME
-                    </a>
-                </section>
-                <ContactModal isOpen={isModalOpen} onclose={closeModal} />
-            </>
-        );
+    const openModal = () => {
+        setIsModalOpen(true);
     };
 
-    export default Contact;
+    const closeModal = () => {
+        setIsModalOpen(false);
+    };
+
+    return (
+        <>
+            <section id="contact" className="contact section">
+                <div className="container">
+                    <button
+                        className="contact-btn"
+                        onClick={openModal}
+                    >
+                       CONTACT ME 
+                    </button>
+                </div>
+                <a href="/dummy_resume.pdf" className="resume-btn" download>
+                    <FontAwesomeIcon icon={faDownload} /> DOWNLOAD RESUME
+                </a>
+            </section>
+            <ContactModal isOpen={isModalOpen} onClose={closeModal} />
+        </>
+    );
+};
+
+export default Contact;

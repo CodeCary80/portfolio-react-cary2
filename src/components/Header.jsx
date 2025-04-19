@@ -31,7 +31,7 @@ const Header = () => {
                 <ul className={`nav-list ${isMenuOpen ? 'active' : ''}`}>
                     <li className="nav-item">
                         <a 
-                            href="https://linkedin.com/in/yourprofile" 
+                            href="https://www.linkedin.com/in/tianrui-zhu-a443bb262/" 
                             target="_blank" 
                             rel="noopener noreferrer" 
                             className="nav-link"
@@ -41,7 +41,7 @@ const Header = () => {
                     </li>
                     <li className="nav-item">
                         <a 
-                            href="https://github.com/yourusername" 
+                            href="https://github.com/CodeCary80" 
                             target="_blank" 
                             rel="noopener noreferrer" 
                             className="nav-link"
