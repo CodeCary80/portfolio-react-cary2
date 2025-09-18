@@ -1,9 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-<<<<<<< HEAD
-=======
 import { faGlobe } from '@fortawesome/free-solid-svg-icons';
->>>>>>> 69fea3a93642c3e61603c85fd1d4c25ab88e0cd1
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 
 const Projects = ({ projects }) => {
@@ -20,9 +17,8 @@ const Projects = ({ projects }) => {
     const getProjectImage = (project) => {
         // First check if we have an img property from the backend
         if (project.img) {
-            // Extract just the filename from the path
-            const imgPath = project.img.split('/').pop();
-            return `/${imgPath}`;
+            // Use the img path from backend (should be /img/filename.png)
+            return project.img;
         }
         
         // If no img property, try to match by title
@@ -31,7 +27,7 @@ const Projects = ({ projects }) => {
         }
         
         // Default fallback
-        return '/itinerary.png';
+        return '/img/itinerary.png';
     };
 
     return (
@@ -60,7 +56,6 @@ const Projects = ({ projects }) => {
                                             <FontAwesomeIcon icon={faGithub} /> Source Code
                                         </a>
                                     )}
-                                    {/* If you also have demo links, you can add them here */}
                                 </div>
                             </div>
                             <div className="project-preview">
