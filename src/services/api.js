@@ -4,7 +4,7 @@ const BASE_URL = process.env.REACT_APP_API_URL || 'https://nodejs-express-portfo
 
 export const fetchSkills = async () => {
   try {
-    const response = await axios.get(`${BASE_URL}/skills/api`);
+    const response = await axios.get(`${BASE_URL}/skills`); // Fixed: removed /api
     console.log('API Skills Response:', response.data);
     return response.data;
   } catch (error) {
@@ -15,7 +15,7 @@ export const fetchSkills = async () => {
 
 export const fetchProjects = async () => {
   try {
-    const response = await axios.get(`${BASE_URL}/projects/api`);
+    const response = await axios.get(`${BASE_URL}/projects`); // Fixed: removed /api
     console.log('API Projects Response:', response.data);
     return response.data;
   } catch (error) {
@@ -23,4 +23,3 @@ export const fetchProjects = async () => {
     return [];
   }
 };
-
