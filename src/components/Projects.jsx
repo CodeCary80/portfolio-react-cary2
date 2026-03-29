@@ -4,15 +4,7 @@ import { faGlobe } from '@fortawesome/free-solid-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 
 const Projects = ({ projects }) => {
-    const PROJECT_IMAGES = {
-        'smartcook.png': '/smartcook.png',
-        'assembly.png': '/assembly.png',
-        'lms.png': '/lms.png',
-        'chillax.png': '/chillax.png',
-        'itinerary.png': '/itinerary.png',
-        'art_explorer.png': '/art_explorer.png',
-    };
-
+    
     const getProjectImage = (project) => {
         if (project.img) {
             const imgPath = project.img.split('/').pop();
