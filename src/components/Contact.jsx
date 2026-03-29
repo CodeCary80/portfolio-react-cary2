@@ -95,7 +95,7 @@ const Contact = () => {
                        CONTACT ME 
                     </button>
                 </div>
-                <a href="/dummy_resume.pdf" className="resume-btn" download>
+                <a href="/CaryZhu-Resume-.pdf" className="resume-btn" download>
                     <FontAwesomeIcon icon={faDownload} /> DOWNLOAD RESUME
                 </a>
             </section>
