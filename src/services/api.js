@@ -26,7 +26,7 @@ const projectsData = [
     description: "Developed a comprehensive course management interface for an educational platform featuring custom course card layouts, advanced search functionality, and streamlined navigation systems.",
     link: null,
     demo: null,
-    img: "lms.png"
+    img: "lms2.png"
   },
   {
     _id: "4",
